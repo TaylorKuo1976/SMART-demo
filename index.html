@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>S.M.A.R.T｜台灣代謝症候群健康促進協會</title>
+  <meta name="description" content="S.M.A.R.T｜社團法人台灣代謝症候群健康促進協會：代謝覺知、責任陪伴、健康轉化。以科學與社群支持，讓每一條健康曲線被看見、被承接、被改善。" />
+  <meta property="og:title" content="S.M.A.R.T｜台灣代謝症候群健康促進協會" />
+  <meta property="og:description" content="代謝覺知・責任陪伴・健康轉化" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-cover.jpg" />
+  <meta name="theme-color" content="#173551" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      /* Brand palette */
+      --smart-deep-blue:#173551; /* 字標/Primary */
+      --smart-amber:#E9B438;     /* Awareness 上弧 */
+      --smart-teal:#00AAAB;      /* Transformation 下弧 */
+      --smart-ivory:#F8F0E6;     /* 背景舒適色 */
+      --ink:#0f2336;
+      --muted:#4a5b6c;
+      --card:#ffffff;
+      --cta:#00AAAB;
+      --maxw:1100px;
+      --radius:16px;
+      --shadow:0 8px 24px rgba(23,53,81,.08);
+    }
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:"Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Heiti TC", sans-serif;
+      color:var(--ink); background:linear-gradient(180deg, var(--smart-ivory) 0%, #fff 60%);
+    }
+    .container{max-width:var(--maxw); margin-inline:auto; padding-inline:20px}
+    /* Header */
+    .skip{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{left:16px; top:16px; width:auto; height:auto; padding:8px 12px; background:#fff; border-radius:8px; box-shadow:var(--shadow)}
+    header{
+      position:sticky; top:0; z-index:50; background:#ffffffcc; backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid rgba(23,53,81,.06)
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{width:44px; height:44px}
+    .title{font-family:Montserrat, system-ui, sans-serif; font-weight:700; letter-spacing:.02em; color:var(--smart-deep-blue)}
+    .subtitle{font-size:.84rem; color:var(--muted)}
+    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+    nav a{color:var(--ink); text-decoration:none; font-weight:500}
+    .cta{background:var(--cta); color:#fff; padding:10px 14px; border-radius:999px; text-decoration:none; font-weight:700}
+    .cta:hover{filter:saturate(110%)}
+    .hamb{display:none}
+
+    /* Hero */
+    .hero{padding:72px 0 32px}
+    .hero .wrap{display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:28px}
+    .kicker{color:var(--smart-amber); font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-family:Montserrat, sans-serif}
+    h1{font-size:clamp(28px, 4vw, 44px); line-height:1.2; margin:.4rem 0 1rem; color:var(--smart-deep-blue)}
+    .lead{font-size:1.12rem; color:var(--muted); max-width:60ch}
+    .actions{display:flex; gap:12px; margin-top:18px}
+    .ghost{border:2px solid var(--smart-deep-blue); color:var(--smart-deep-blue); background:transparent; padding:10px 14px; border-radius:999px; text-decoration:none; font-weight:700}
+
+    .hero-card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
+
+    /* Sections */
+    section{padding:56px 0}
+    section h2{font-size:clamp(22px, 3vw, 32px); color:var(--smart-deep-blue); margin:0 0 10px}
+    section p.lead{margin:0 0 22px}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px}
+    .card h3{margin:.2rem 0 .4rem; font-size:1.1rem}
+    .eyebrow{font-family:Montserrat; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-size:.78rem}
+
+    /* Health Curve */
+    .curve-wrap{display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center}
+    .curve-panel{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px}
+    .slider{width:100%}
+    .legend{display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-size:.95rem}
+    .dot{width:12px; height:12px; border-radius:3px}
+    .amber{background:var(--smart-amber)}
+    .teal{background:var(--smart-teal)}
+    .blue{background:var(--smart-deep-blue)}
+
+    /* Programs */
+    .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+
+    /* News */
+    .news{display:grid; grid-template-columns:2fr 1fr; gap:16px}
+    .news-list{display:grid; gap:10px}
+    .news-item{background:#fff; border-radius:12px; padding:14px; box-shadow:var(--shadow)}
+    .news-item time{color:var(--muted); font-size:.9rem}
+
+    /* Footer */
+    footer{background:var(--smart-deep-blue); color:#e8f0f6; padding:36px 0; margin-top:24px}
+    footer a{color:#fff}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero .wrap, .curve-wrap, .news{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      nav ul{display:none}
+      .hamb{display:block}
+      .hero{padding:56px 0 20px}
+      .grid{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr}
+    }
+    .mobile-open nav ul{position:absolute; left:0; right:0; top:60px; background:#fff; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px; padding:12px 20px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要內容</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <!-- If you have a logo file, replace the SVG below with <img src="assets/logo.png" class="logo" alt="S.M.A.R.T 標誌"/> -->
+        <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="46" fill="#fff"/>
+          <path d="M25 28 A32 32 0 0 1 75 28" fill="none" stroke="var(--smart-amber)" stroke-width="10" stroke-linecap="round"/>
+          <path d="M25 72 A32 32 0 0 0 75 72" fill="none" stroke="var(--smart-teal)" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="title">S.M.A.R.T</div>
+          <div class="subtitle">Society for Metabolic Awareness, Responsibility & Transformation</div>
+        </div>
+      </a>
+      <nav aria-label="主選單">
+        <button class="hamb" aria-expanded="false" aria-controls="menu" id="hamb">☰</button>
+        <ul id="menu">
+          <li><a href="#mission">使命</a></li>
+          <li><a href="#curve">健康曲線</a></li>
+          <li><a href="#programs">服務/計畫</a></li>
+          <li><a href="#evidence">資料與出版</a></li>
+          <li><a href="#join">加入我們</a></li>
+          <li><a class="cta" href="#contact">聯絡</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <div class="kicker">Metabolic Health for All</div>
+          <h1>代謝覺知・責任陪伴・健康轉化</h1>
+          <p class="lead">我們以資料與臨床為核心，結合社群與教育，讓每一條<strong>個案健康曲線</strong>被看見、被承接、被改善。採用 S.M.A.R.T 方法：<strong>Screen → Measure → Act → Review → Transform</strong>。</p>
+          <div class="actions">
+            <a class="cta" href="#mission">了解理念</a>
+            <a class="ghost" href="#evidence">查看證據與報告</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <svg viewBox="0 0 520 320" width="100%" height="100%">
+            <rect x="0" y="0" width="100%" height="100%" rx="16" ry="16" fill="#fff"/>
+            <text x="24" y="34" font-family="Montserrat" font-size="18" fill="var(--muted)">S.M.A.R.T Health Curve</text>
+            <!-- baseline grid -->
+            <g stroke="#e8eef4" stroke-width="1">
+              <line x1="40" y1="60" x2="480" y2="60"/>
+              <line x1="40" y1="120" x2="480" y2="120"/>
+              <line x1="40" y1="180" x2="480" y2="180"/>
+              <line x1="40" y1="240" x2="480" y2="240"/>
+            </g>
+            <!-- awareness (amber) -->
+            <path d="M70,110 C160,10 360,10 450,110" fill="none" stroke="var(--smart-amber)" stroke-width="10" stroke-linecap="round"/>
+            <!-- companionship (teal) -->
+            <path d="M70,210 C160,310 360,310 450,210" fill="none" stroke="var(--smart-teal)" stroke-width="10" stroke-linecap="round"/>
+            <!-- improvement curve (blue) -->
+            <path id="improveLine" d="M70,210 C180,170 300,140 450,120" fill="none" stroke="var(--smart-deep-blue)" stroke-width="6" stroke-linecap="round"/>
+            <circle id="marker" cx="450" cy="120" r="6" fill="var(--smart-deep-blue)"/>
+          </svg>
+          <div class="legend" style="margin-top:8px">
+            <div class="dot amber"></div><span>認識（Awareness）</span>
+            <div class="dot teal"></div><span>陪伴（Responsibility）</span>
+            <div class="dot blue"></div><span>改善（Transformation）</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission">
+      <div class="container">
+        <h2>品牌使命與方法</h2>
+        <p class="lead">以<strong>循證</strong>為根、<strong>陪伴</strong>為本、<strong>轉化</strong>為果。三大支柱對應我們的標誌弧線與色彩語意。</p>
+        <div class="grid">
+          <div class="card">
+            <div class="eyebrow">Awareness</div>
+            <h3>覺知：把風險帶進光裡</h3>
+            <p>建置社區篩檢與資料素養，透過指標可視化與健康曲線，讓個案看見自身位置與趨勢。</p>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Responsibility</div>
+            <h3>責任：長期、專業的陪伴</h3>
+            <p>跨專業團隊與家庭/社群一起承接，建立目標、追蹤節點與回饋機制，形成可信任的照護關係。</p>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Transformation</div>
+            <h3>轉化：代謝彈性與生活醫療</h3>
+            <p>以行動方案與環境設計促進代謝彈性修復，將短期成效轉為長期習慣與社群文化。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curve interactive -->
+    <section id="curve">
+      <div class="container">
+        <h2>個案健康曲線：認識・陪伴・改善</h2>
+        <p class="lead">調整介入強度，觀察「改善曲線」如何上揚並逐步趨穩。此示意僅為教學用途，實際照護將依個案分層與臨床判斷而定。</p>
+        <div class="curve-wrap">
+          <div class="curve-panel">
+            <svg id="curveSvg" viewBox="0 0 520 320" width="100%" height="100%" aria-label="健康曲線互動圖">
+              <rect x="0" y="0" width="100%" height="100%" rx="16" ry="16" fill="#fff"/>
+              <g stroke="#e8eef4" stroke-width="1">
+                <line x1="40" y1="60" x2="480" y2="60"/>
+                <line x1="40" y1="120" x2="480" y2="120"/>
+                <line x1="40" y1="180" x2="480" y2="180"/>
+                <line x1="40" y1="240" x2="480" y2="240"/>
+                <line x1="40" y1="280" x2="480" y2="280"/>
+              </g>
+              <path d="M70,80 C160,-10 360,-10 450,80" fill="none" stroke="var(--smart-amber)" stroke-width="10" stroke-linecap="round"/>
+              <path d="M70,240 C160,330 360,330 450,240" fill="none" stroke="var(--smart-teal)" stroke-width="10" stroke-linecap="round"/>
+              <path id="improve" d="M70,240 C200,210 320,170 450,150" fill="none" stroke="var(--smart-deep-blue)" stroke-width="6" stroke-linecap="round"/>
+              <circle id="improveDot" cx="450" cy="150" r="6" fill="var(--smart-deep-blue)"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card">
+              <h3 style="margin-top:0">介入強度</h3>
+              <input class="slider" type="range" min="0" max="100" value="48" id="intensity" aria-label="介入強度"/>
+              <p class="lead" id="intensityLabel" style="margin:.6rem 0 0">中等介入：生活醫療 + 團隊追蹤</p>
+            </div>
+            <div class="card">
+              <h3 style="margin-top:0">S.M.A.R.T 步驟</h3>
+              <ol>
+                <li><strong>Screen</strong>：社區/門診風險分層與初評</li>
+                <li><strong>Measure</strong>：建立健康曲線與可視化儀表板</li>
+                <li><strong>Act</strong>：個人化行動與環境支持</li>
+                <li><strong>Review</strong>：週期性回顧與調整</li>
+                <li><strong>Transform</strong>：從短期成效走向長期習慣</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs">
+      <div class="container">
+        <h2>臨床服務與計畫</h2>
+        <div class="grid-4">
+          <div class="card"><div class="eyebrow">Community</div><h3>社區代謝風險分層</h3><p>外展式篩檢、HRV/體組成/指標追蹤，形成社區健康地圖。</p></div>
+          <div class="card"><div class="eyebrow">Clinic</div><h3>生活醫療門診</h3><p>聚焦代謝彈性、GI 自律平衡、睡眠/壓力治理與運動處方。</p></div>
+          <div class="card"><div class="eyebrow">Coaching</div><h3>團隊陪伴方案</h3><p>健康教練、家戶共照、數據回饋，降低復發風險。</p></div>
+          <div class="card"><div class="eyebrow">Data</div><h3>資料與教育平台</h3><p>以可讀儀表與教材強化決策，支援個案與臨床專業者。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evidence & Publications -->
+    <section id="evidence">
+      <div class="container">
+        <h2>資料與出版（精選）</h2>
+        <p class="lead">我們致力於將臨床與教育內容以可讀形式發表。更多資訊可參考原站之公告與文章。</p>
+        <div class="news">
+          <div class="news-list">
+            <article class="news-item">
+              <time datetime="2024-01-01">2024</time>
+              <h3 style="margin:.2rem 0">代謝彈性與社區健康曲線（白皮書摘要）</h3>
+              <p>提出以健康曲線作為共通語言，串接個案、家庭與社群的治理模型。</p>
+            </article>
+            <article class="news-item">
+              <time datetime="2024-05-01">2024</time>
+              <h3 style="margin:.2rem 0">生活醫療介入的五步驟：S→M→A→R→T</h3>
+              <p>以行動設計與微習慣將短期指標改善轉化為長期生活方式。</p>
+            </article>
+            <article class="news-item">
+              <time datetime="2024-08-01">2024</time>
+              <h3 style="margin:.2rem 0">社區與臨床的資料互通：儀表板與倫理</h3>
+              <p>於教育工作坊分享資料治理、隱私保護與共用決策的實務。</p>
+            </article>
+          </div>
+          <aside class="card">
+            <h3 style="margin-top:0">原有網站（參考）</h3>
+            <p>更多文章與公告請見：<br/>
+              <a href="https://www.tmshpa.org.tw/?m=inform_main&news_no=5" target="_blank" rel="noopener">tmshpa.org.tw｜協會資訊</a>
+            </p>
+            <p style="font-size:.92rem;color:var(--muted)">我們將逐步把內容結構化為「覺知／陪伴／轉化」三層導覽，以提升可讀性與搜尋性。</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join -->
+    <section id="join">
+      <div class="container">
+        <h2>加入與支持</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="eyebrow">Member</div>
+            <h3>成員加入</h3>
+            <p>歡迎臨床專業、教育者、設計與工程夥伴一起推動代謝健康。填寫表單，我們將與您聯繫。</p>
+            <a class="cta" href="#contact">我要加入</a>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Partner</div>
+            <h3>機構夥伴</h3>
+            <p>與企業、學校、社群合作導入健康曲線儀表板與教案，量化成果，擴散影響力。</p>
+            <a class="ghost" href="#contact">成為夥伴</a>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Support</div>
+            <h3>贊助與志工</h3>
+            <p>支持教育資源開放與社區外展，或加入志工團隊協助工作坊與活動。</p>
+            <a class="ghost" href="#contact">了解方式</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2>聯絡我們</h2>
+        <div class="grid">
+          <div class="card">
+            <form onsubmit="event.preventDefault(); alert('感謝您的留言，我們將盡快與您聯繫。');">
+              <label>您的姓名<br/><input required type="text" style="width:100%;padding:10px;border:1px solid #d7dee6;border-radius:10px"/></label><br/><br/>
+              <label>電子郵件<br/><input required type="email" style="width:100%;padding:10px;border:1px solid #d7dee6;border-radius:10px"/></label><br/><br/>
+              <label>留言內容<br/><textarea rows="5" style="width:100%;padding:10px;border:1px solid #d7dee6;border-radius:10px"></textarea></label><br/><br/>
+              <button class="cta" type="submit">送出</button>
+            </form>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">品牌與識別資源</h3>
+            <ul>
+              <li>色彩：深藍 <code>#173551</code>、琥珀 <code>#E9B438</code>、湖青 <code>#00AAAB</code>、象牙 <code>#F8F0E6</code></li>
+              <li>字體：Montserrat（英）／Noto Sans TC（中）</li>
+              <li>Logo：提供 PNG/SVG；請保持留白與最小尺寸規範</li>
+            </ul>
+            <p style="font-size:.92rem;color:var(--muted)">如需一頁式 PDF、PPT 樣板或品牌手冊，歡迎來信索取。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:grid; gap:10px">
+      <div style="font-family:Montserrat; letter-spacing:.08em; font-weight:700">S.M.A.R.T — Society for Metabolic Awareness, Responsibility & Transformation</div>
+      <div style="color:#b9c7d3">© <span id="year"></span> 台灣代謝症候群健康促進協會．All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // mobile menu
+    const hamb = document.getElementById('hamb');
+    hamb?.addEventListener('click', ()=>{
+      const expanded = hamb.getAttribute('aria-expanded') === 'true';
+      hamb.setAttribute('aria-expanded', String(!expanded));
+      document.body.classList.toggle('mobile-open');
+    });
+
+    // interactive curve logic
+    const slider = document.getElementById('intensity');
+    const label = document.getElementById('intensityLabel');
+    const improve = document.getElementById('improve');
+    const dot = document.getElementById('improveDot');
+    const txt = [
+      '低度介入：教育/自學為主',
+      '中低介入：生活建議 + 偶發追蹤',
+      '中等介入：生活醫療 + 團隊追蹤',
+      '中高介入：行為教練 + 多專業介入',
+      '高度介入：密集追蹤 + 醫療處置'
+    ];
+    function updateCurve(v){
+      // v: 0..100，控制貝茲曲線彎曲程度與終點高度
+      const t = v/100; // 0..1
+      const c1y = 240 - 110*t;
+      const c2y = 240 - 150*t;
+      const endY = 240 - 160*t;
+      const d = `M70,240 C200,${c1y.toFixed(1)} 320,${c2y.toFixed(1)} 450,${endY.toFixed(1)}`;
+      improve.setAttribute('d', d);
+      dot.setAttribute('cy', endY.toFixed(1));
+      // update label buckets
+      const bucket = Math.min(4, Math.floor(t*5));
+      label.textContent = txt[bucket];
+    }
+    slider?.addEventListener('input', e=> updateCurve(Number(e.target.value)));
+    updateCurve(Number(slider?.value || 48));
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
